@@ -36,6 +36,7 @@ Route::get('/', function () {
 	dd($post);
 	*/
 	
+	/*
 	$posts = Post::all();
 	
 	// 每次迴圈依序取出一篇貼文
@@ -46,6 +47,10 @@ Route::get('/', function () {
 		echo '張貼時間: '.$post->created_at.'<br>';
 	}
 	dd($post);
+	*/
+	
+	$posts = Post::where('id', '<', 10)->orderBy('id', 'DESC')->get();
+	dd($posts);
 	
 	return 'Saved, OK!';
 });
