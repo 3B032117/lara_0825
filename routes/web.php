@@ -22,10 +22,17 @@ Route::get('/', function () {
 	]);
 	*/
 	
+	/*
 	$post = new Post();
 	$post->title = "test title";
 	$post->content = "test content";
 	$post->save();
+	*/
+	
+	$post = Post::find(1);
+	echo '標題: '.$post->title.'<br>';
+	echo '內容: '.$post->content.'<br>';
+	dd($post);
 	
 	return 'Saved, OK!';
 });
