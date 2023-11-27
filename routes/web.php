@@ -78,6 +78,7 @@ Route::get('/', function () {
 	Post::destroy(3, 5, 7);
 	*/
 	
+	/*
     $allPosts = Post::all();
     dd($allPosts);
 	
@@ -89,6 +90,17 @@ Route::get('/', function () {
 
     $lastPost = Post::orderBy('id','DESC')->first();
     dd($lastPost);
+	*/
+	
+    $post = Post::find(6);
+    echo '標題: '.$post->title.'<br>';
+    echo '內容: '.$post->content.'<br>';
+    echo '--------------------------'.'<br>';
+    $comments = $post->comments()->get();
+    foreach ($comments as $comment){
+        echo '留言: '.$comment->content."<br>";
+        echo '--------------------------'.'<br>';
+    }
 	
 	return 'OK!';
 });
